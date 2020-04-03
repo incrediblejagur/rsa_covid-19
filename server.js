@@ -6,6 +6,7 @@ const Data_Api = require('./server/api/data_api')
 
 
 const app = express();
+app.use(express.static('./client/build'));
 
 const data_api = Data_Api()
  
