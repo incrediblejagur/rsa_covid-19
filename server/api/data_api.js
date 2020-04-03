@@ -1,11 +1,10 @@
-const SARP_COVIDdata = require('../services/web-scraper/getFromSARP.js')()
 const curveData = require('../services/data');
-module.exports = () => {
+module.exports = (latestData) => {
 
 
-    const latestCovidData = (req, res) => {
+    const latestCovidData = async (req, res) => {
         res.json({
-            SARP_COVIDdata
+            latestData
         })
     }
     

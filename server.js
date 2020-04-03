@@ -1,15 +1,19 @@
 const express = require('express');
 const Routes = require('./server/routes/index')
 const Data_Api = require('./server/api/data_api')
+const WebScraper = require('./server/services/web-scraper/scraper')
 
 
 
 
 const app = express();
+
 app.use(express.static('./client/build'));
 
-const data_api = Data_Api()
- 
+
+
+let webScraper = WebScraper()
+const data_api = Data_Api(webScraper)
 Routes(app,data_api)
 
 

@@ -10,7 +10,7 @@ export default class Home extends React.Component {
     componentDidMount = () => {
         axios.get('/api/covid/latest')
             .then((result) => {
-                let data = result.data.SARP_COVIDdata
+                let data = result.data.latestData
                 this.setState({ latest:data })
             })
             axios.get('/api/covid/all')
@@ -89,7 +89,7 @@ export default class Home extends React.Component {
                 </div>
                 </div>
 
-                <div className="row">
+                <div className="row" style={{marginTop:15}}>
                 <Line data={curveData} />
                 </div>
             
