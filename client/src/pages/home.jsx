@@ -10,7 +10,8 @@ export default class Home extends React.Component {
     componentDidMount = () => {
         axios.get('/api/covid/latest')
             .then((result) => {
-                let data = result.data.latestData
+                let data = result.data.data
+                data.pop()
                 this.setState({ latest:data })
             })
             axios.get('/api/covid/all')
