@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "express-status-monitor": "^1.2.10",
     "moment-timezone": "^0.5.28",
-    "mongodb": "^3.5.5",
+    "mongodb": "^2.2.33",
     "pg": "^8.0.0",
     "puppeteer": "^2.1.1"
   }
