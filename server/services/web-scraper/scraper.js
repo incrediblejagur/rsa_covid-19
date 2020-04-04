@@ -11,7 +11,7 @@ module.exports = (db) => {
     const url = "https://sacoronavirus.co.za/"
 
     puppeteer
-      .launch()
+      .launch({args: ['--no-sandbox']})
       .then(browser => browser.newPage())
       .then(page => {
         return page.goto(url, { waitUntil: 'networkidle2' }).then(async function () {

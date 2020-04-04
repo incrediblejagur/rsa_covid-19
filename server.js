@@ -20,7 +20,7 @@ if (err) {
   console.error(err)
   return
 }
-const db = client.db('heroku_9jppstmg')
+const db = client.db('covid19')
 let getLatestStats = GetLatestStats(db)
 let addDataSet = AddDataSet(db)
 let webScraper = WebScraper(db)
