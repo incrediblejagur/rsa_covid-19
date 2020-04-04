@@ -1,9 +1,9 @@
 const curveData = require('../services/data');
-module.exports = (latestData,getLatestStats,dataset) => {
+module.exports = (saStats,getLatestStats,allCovidData) => {
 
 
     const latestCovidData = async (req, res) => {
-        await latestData.scrape()
+        await saStats.scrape()
         try{
         res.json({
             data:await getLatestStats.getLatest(),
@@ -14,14 +14,17 @@ module.exports = (latestData,getLatestStats,dataset) => {
     }
     }
     
-    const getCurveData = (req,res) => {
+    const getCurveData = async (req,res) => {
         res.json({
-            curveData
+            curveData: await allCovidData.getData()
         })
     }
 
-    const addInitalDataset = async () => {
-        await dataset.uploadData()
+    const addInitalDataset = async (req,res) => {
+        await allCovidData.uploadData()
+        res.json({
+            status:'success'
+        })
     }
 
 

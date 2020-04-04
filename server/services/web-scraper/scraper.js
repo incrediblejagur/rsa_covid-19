@@ -5,7 +5,8 @@ const moment = require('moment-timezone');
 module.exports = (db) => {
 
   const scrape = async () => {
-  const collection = db.collection('latestData');
+  const collectionA = db.collection('latestData');
+  const collectionB = db.collection('allData');
   //Data extracted from South African Resource Portal for COVID-19
     let extractedData = [];
     const url = "https://sacoronavirus.co.za/"
@@ -29,7 +30,24 @@ module.exports = (db) => {
           });
         });
         extractedData.push({time:moment().tz("Africa/Maseru").format()})
-        await collection.insertOne({extractedData})
+        await collectionA.insertOne({extractedData})
+        let getAllDbData = await collectionB.find().toArray()
+        let lastDatasetinDb = getAllDbData[getAllDbData.length - 1].data
+        let lastItemInDataset = lastDatasetinDb[lastDatasetinDb.length - 1]
+        if(lastItemInDataset.cases !== Number(Object.values(extractedData[1]))){
+          let newDataToAdd ={
+            date:'',
+            cases:Number(Object.values(extractedData[1])),
+            recoveries:Number(Object.values(extractedData[2])),
+            deaths:Number(Object.values(extractedData[3]))
+          }
+          lastDatasetinDb.push(newDataToAdd)
+          await collectionB.insertOne({data:lastDatasetinDb})
+          // console.log('data is different')
+        }else{
+          // console.log('data is the same')
+        }
+        
       })
     }
     return{

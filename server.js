@@ -3,7 +3,7 @@ const Routes = require('./server/routes/index')
 const Data_Api = require('./server/api/data_api')
 const WebScraper = require('./server/services/web-scraper/scraper')
 const GetLatestStats = require('./server/services/getLatestStats');
-const AddDataSet = require('./server/services/addDataset');
+const AllCovidData = require('./server/services/allCovidData');
 const mongo = require('mongodb').MongoClient
 
 
@@ -18,9 +18,9 @@ if (err) {
   return
 }
 let getLatestStats = GetLatestStats(db)
-let addDataSet = AddDataSet(db)
+let allCovidData = AllCovidData(db)
 let webScraper = WebScraper(db)
-const data_api = Data_Api(webScraper,getLatestStats,addDataSet)
+const data_api = Data_Api(webScraper,getLatestStats,allCovidData)
 Routes(app,data_api)
 })
 
