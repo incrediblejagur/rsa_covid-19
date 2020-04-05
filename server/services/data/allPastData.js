@@ -178,7 +178,7 @@ module.exports = data =
         {
             date: '2020/04/02',
             cases: 1462,
-            recoveries:0,
+            recoveries:45,
             deaths:5
         }
     ]

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
+import MyMap from '../components/mapbox';
+import dataset from '../components/dataset';
 
 export default class Home extends React.Component {
     state = {
@@ -19,36 +21,18 @@ export default class Home extends React.Component {
                 let response = result.data.curveData
 
                 let labels = [];
-                let stats = [];
+                let cases = [];
+                let recoveries = [];
+                let deaths = [];
                 for (let z = 0; z < response.length; z++) {
                     labels.push(response[z].date)
-                    stats.push(response[z].cases)
+                    cases.push(response[z].cases)
+                    recoveries.push(response[z].recoveries)
+                    deaths.push(response[z].deaths)
                 }
                 let data = {
                     labels,
-                    datasets: [
-                        {
-                            label: 'Total Cases Identified',
-                            fill: false,
-                            lineTension: 0.1,
-                            backgroundColor: 'rgba(75,192,192,0.4)',
-                            borderColor: 'rgba(75,192,192,1)',
-                            borderCapStyle: 'butt',
-                            borderDash: [],
-                            borderDashOffset: 0.0,
-                            borderJoinStyle: 'miter',
-                            pointBorderColor: 'rgba(75,192,192,1)',
-                            pointBackgroundColor: '#fff',
-                            pointBorderWidth: 1,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                            pointHoverBorderColor: 'rgba(220,220,220,1)',
-                            pointHoverBorderWidth: 2,
-                            pointRadius: 1,
-                            pointHitRadius: 10,
-                            data: stats
-                        }
-                    ]
+                    datasets: dataset.returnData(cases,recoveries,deaths)
                 };
 
                 this.setState({ curveData: data })
@@ -83,6 +67,7 @@ export default class Home extends React.Component {
         let { latest, curveData } = this.state;
         if (latest.length > 0) {
             return (
+                <div>
                 <div className="container">
                     <div className="row centered">
                         <div className="card-group" style={{ marginTop: 50 }}>
@@ -97,18 +82,21 @@ export default class Home extends React.Component {
                                     yAxes: [{
                                         ticks: {
                                             beginAtZero: true,
-                                            max: Math.ceil( (Number(Object.values(latest[1])) * 2.5) / 100) * 100
+                                            max: Math.ceil((Number(Object.values(latest[1])) * 2.5) / 100) * 100
                                         }
                                     }]
                                 }
                             }}
                         />
                     </div>
-
+                </div>
+    <div style={{ marginTop: 20 }}>
+    <MyMap />
+</div>
                 </div>
             )
         } else {
-            return <div></div>
+            return <div><MyMap /></div>
         }
     }
 }
