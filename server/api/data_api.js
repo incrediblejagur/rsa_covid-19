@@ -27,10 +27,17 @@ module.exports = (saStats,getLatestStats,allCovidData) => {
         })
     }
 
+    const getProvinceData = (req,res) => {
+        res.json({
+            data:allCovidData.casesByProvince()
+        })
+    }
+
 
     return{
         latestCovidData,
         getCurveData,
+        getProvinceData,
         addInitalDataset
     }
 }

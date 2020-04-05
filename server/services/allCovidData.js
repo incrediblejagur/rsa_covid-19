@@ -1,4 +1,5 @@
 const dataset = require('./data/allPastData');
+const provinceData = require('./data/casesByProvince');
 module.exports = (db) => {
     const uploadData = async () => {
         //just for initial upload of data, just runs once
@@ -18,8 +19,13 @@ module.exports = (db) => {
         let lastDatasetinDb = getAllDbData[getAllDbData.length - 1].data        
         return lastDatasetinDb //returns most up-to-date dataset
     }
+
+    const casesByProvince = () => {
+        return provinceData;
+    }
     return {
         uploadData,
-        getData
+        getData,
+        casesByProvince
     }
 }
