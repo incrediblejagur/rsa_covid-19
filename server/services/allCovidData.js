@@ -1,4 +1,4 @@
-const dataset = require('./data');
+const dataset = require('./data/allPastData');
 module.exports = (db) => {
     const uploadData = async () => {
         //just for initial upload of data, just runs once

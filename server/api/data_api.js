@@ -1,4 +1,4 @@
-const curveData = require('../services/data');
+const curveData = require('../services/data/allPastData');
 module.exports = (saStats,getLatestStats,allCovidData) => {
 
 
