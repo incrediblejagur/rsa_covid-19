@@ -18,7 +18,7 @@ export default class Home extends React.Component {
             })
         axios.get('/api/covid/all')
             .then((result) => {
-                let response = result.data.curveData
+                let response = result.data.data
 
                 let labels = [];
                 let cases = [];

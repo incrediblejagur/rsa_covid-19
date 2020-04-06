@@ -15,7 +15,8 @@ module.exports = (getLatestStats,allCovidData) => {
     
     const getCurveData = async (req,res) => {
         res.json({
-            curveData: await allCovidData.getData()
+            data: await allCovidData.getData(),
+            status:'success'
         })
     }
 
