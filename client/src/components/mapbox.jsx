@@ -19,7 +19,7 @@ export default class MyMap extends React.Component{
       container: 'mymap',
       style: 'mapbox://styles/incrediblejagur/ck7xs2kdu00ot1ilpid6krvs7',
       center: [24.991639, -28.8166236],
-      zoom: 5.3
+      zoom: 4.9
     });
     map.scrollZoom.disable();
     map.dragPan.disable()
