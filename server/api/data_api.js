@@ -13,7 +13,7 @@ module.exports = (getLatestStats,allCovidData) => {
     }
     }
     
-    const getCurveData = async (req,res) => {
+    const getAllCovidData = async (req,res) => {
         res.json({
             data: await allCovidData.getData(),
             status:'success'
@@ -36,7 +36,7 @@ module.exports = (getLatestStats,allCovidData) => {
 
     return{
         latestCovidData,
-        getCurveData,
+        getAllCovidData,
         getProvinceData,
         addInitalDataset
     }
