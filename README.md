@@ -5,6 +5,20 @@ Please note all data comes from the official South African Coronavirus website w
  - Chart.js
  - MapboxGL.js
  - Puppeteer
+ - Cheerio
+ - Axios
+
+## About WebScraper
+ ```
+ The scraper script is run once a day at 11:00PM, once run it updates the data in our database. The scraper script consists of puppeteer and cheerio.
+ ```
+ 
+ ## Built With
+ - NodeJS
+ - Express
+ - MongoDB
+ - React
+ - Bootstrap
 
 ## DataSources:
 - [South African Corona Virus](https://sacoronavirus.co.za/)
