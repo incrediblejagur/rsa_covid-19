@@ -1,7 +1,6 @@
 const express = require('express');
 const Routes = require('./server/routes/index')
 const Data_Api = require('./server/api/data_api')
-const WebScraper = require('./server/services/web-scraper/scraper')
 const GetLatestStats = require('./server/services/getLatestStats');
 const AllCovidData = require('./server/services/allCovidData');
 const mongo = require('mongodb').MongoClient
@@ -12,16 +11,14 @@ app.use(require('express-status-monitor')())
 app.use(express.static('./client/build'));
 
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/covid19'
-mongo.connect(uri, async (err, db) => {
+mongo.connect(uri, (err, db) => {
 if (err) {
   console.error(err)
   return
 }
 let getLatestStats = GetLatestStats(db)
 let allCovidData = AllCovidData(db)
-let webScraper = WebScraper(db)
-await webScraper.scrape()
-const data_api = Data_Api(webScraper,getLatestStats,allCovidData)
+const data_api = Data_Api(getLatestStats,allCovidData)
 Routes(app,data_api)
 })
 

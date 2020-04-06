@@ -1,5 +1,5 @@
 const curveData = require('../services/data/allPastData');
-module.exports = (saStats,getLatestStats,allCovidData) => {
+module.exports = (getLatestStats,allCovidData) => {
 
 
     const latestCovidData = async (req, res) => {
