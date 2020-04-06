@@ -1,7 +1,7 @@
 # South Africa COVID-19 outbreak tracker
 Please note all data comes from the official South African Coronavirus website which get their data from the NICD(National Institute for Communicatable Diseases), They are responsible for monitoring and tracking for all covid-19 cases in South Africa. The data on this website is scraped once a day from their website. All past data that appear on the graphs before we started capturing the data is from wikipedia.
 
-Libraries Used:
+## Libraries Used:
  - Chart.js
  - MapboxGL.js
  - Puppeteer
