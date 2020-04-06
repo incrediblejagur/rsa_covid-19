@@ -3,7 +3,6 @@ module.exports = (saStats,getLatestStats,allCovidData) => {
 
 
     const latestCovidData = async (req, res) => {
-        await saStats.scrape()
         try{
         res.json({
             data:await getLatestStats.getLatest(),

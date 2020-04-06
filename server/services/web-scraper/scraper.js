@@ -29,14 +29,17 @@ module.exports = (db) => {
             [data_name]: data_value
           });
         });
-        extractedData.push({time:moment().tz("Africa/Maseru").format()})
+        let dateByZone = moment().tz("Africa/Maseru").format()
+        let dateOnly = dateByZone.split('T')[0]
+        let formatedDate = dateOnly.replace('-','/').replace('-','/')
+        extractedData.push({time:formatedDate})
         await collectionA.insertOne({extractedData})
         let getAllDbData = await collectionB.find().toArray()
         let lastDatasetinDb = getAllDbData[getAllDbData.length - 1].data
         let lastItemInDataset = lastDatasetinDb[lastDatasetinDb.length - 1]
         if(lastItemInDataset.cases !== Number(Object.values(extractedData[1]))){
           let newDataToAdd ={
-            date:'',
+            date:extractedData[4].time,
             cases:Number(Object.values(extractedData[1])),
             recoveries:Number(Object.values(extractedData[2])),
             deaths:Number(Object.values(extractedData[3]))

@@ -20,6 +20,7 @@ if (err) {
 let getLatestStats = GetLatestStats(db)
 let allCovidData = AllCovidData(db)
 let webScraper = WebScraper(db)
+await webScraper.scrape()
 const data_api = Data_Api(webScraper,getLatestStats,allCovidData)
 Routes(app,data_api)
 })
