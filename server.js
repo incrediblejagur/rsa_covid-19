@@ -12,7 +12,7 @@ app.use(require('express-status-monitor')())
 app.use(express.static('./client/build'));
 
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/covid19'
-mongo.connect(uri, (err, db) => {
+mongo.connect(uri, async (err, db) => {
 if (err) {
   console.error(err)
   return
