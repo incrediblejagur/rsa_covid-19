@@ -1,3 +1,50 @@
 # South Africa COVID-19 outbreak tracker
-A simple and fast (&lt; 50ms) API for tracking the South Africa COVID-19 outbreak. Made with NodeJS
-Data is being scraped from https://sacoronavirus.co.za/. As well as from Wikipedia.
+Please note all data comes from the official South African Coronavirus website which get their data from the NICD(National Institute for Communicatable Diseases), They are responsible for monitoring and tracking for all covid-19 cases in South Africa. The data on this website is scraped once a day from their website. All past data that appear on the graphs is before we started capturing the data is from wikipedia.
+
+## Libraries Used:
+ - Chart.js
+ - MapboxGL.js
+ - Puppeteer
+ - Cheerio
+ - Axios
+
+## About WebScraper
+ ```
+The scraper script is run once a day at 11:00PM, once run it updates the data in our database. 
+The script uses puppeteer and cheerio to scrape the website.
+```
+ 
+ ## Built With
+ - NodeJS
+ - Express
+ - MongoDB
+ - React
+ - Bootstrap
+
+## DataSources:
+- [South African Corona Virus](https://sacoronavirus.co.za/)
+- [Wikipedia Covid-19 SA](https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data/South_Africa_medical_cases_chart)
+
+## Versioning
+
+  
+
+`"version": "1.0.0",`
+
+  
+
+## Author
+
+  
+
+- **Daniel Minter** 
+
+  
+
+## License
+
+  
+
+This project is licensed under the ISC License - see the [ISC-LICENSE.md](https://github.com/nevir/readable-licenses/blob/master/markdown/ISC-LICENSE.md) file for details `"license": "ISC"`
+
+
