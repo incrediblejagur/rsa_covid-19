@@ -7,7 +7,6 @@ Please note all data comes from the official South African Coronavirus website w
  - Puppeteer
 
 ## DataSources:
-```
 [South African Corona Virus](https://sacoronavirus.co.za/)
 [Wikipedia Covid-19 SA](https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data/South_Africa_medical_cases_chart)
-```
+
