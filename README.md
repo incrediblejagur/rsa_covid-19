@@ -25,3 +25,26 @@ The script uses puppeteer and cheerio to scrape the website.
 - [South African Corona Virus](https://sacoronavirus.co.za/)
 - [Wikipedia Covid-19 SA](https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data/South_Africa_medical_cases_chart)
 
+## Versioning
+
+  
+
+`"version": "1.0.0",`
+
+  
+
+## Author
+
+  
+
+- **Daniel Minter** 
+
+  
+
+## License
+
+  
+
+This project is licensed under the ISC License - see the [ISC-LICENSE.md](https://github.com/nevir/readable-licenses/blob/master/markdown/ISC-LICENSE.md) file for details `"license": "ISC"`
+
+
