@@ -35,7 +35,7 @@ The script uses puppeteer and cheerio to scrape the latest data from https://sac
 
   
 
-- **github.com/incrediblejagur** 
+- [incrediblejagur](github.com/incrediblejagur)
 
   
 
