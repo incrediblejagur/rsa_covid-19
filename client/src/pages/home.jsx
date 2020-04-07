@@ -32,7 +32,7 @@ export default class Home extends React.Component {
                 }
                 let data = {
                     labels,
-                    datasets: dataset.returnData(cases,recoveries,deaths)
+                    datasets: dataset.returnData(cases, recoveries, deaths)
                 };
 
                 this.setState({ curveData: data })
@@ -67,33 +67,38 @@ export default class Home extends React.Component {
         let { latest, curveData } = this.state;
         if (latest.length > 0) {
             return (
-                <div>
-                <div className="container">
-                    <div className="row centered">
-                        <div className="card-group" style={{ marginTop: 50 }}>
-                            {this.displayData()}
-                        </div>
-                    </div>
+                    <div className="container">
 
-                    <div className="row" style={{ marginTop: 15 }}>
-                        <Line data={curveData}
-                            options={{
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                            max: Math.ceil((Number(Object.values(latest[1])) * 2.5) / 100) * 100
+                        <div className="row centered">
+                            <div className="col">
+                                <div className="card-group" style={{ marginTop: 50 }}>
+                                    {this.displayData()}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="row" style={{ marginTop: 15 }}>
+                            <div className="col">
+                                <Line data={curveData}
+                                    options={{
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true,
+                                                    max: Math.ceil((Number(Object.values(latest[1])) * 2.5) / 100) * 100
+                                                }
+                                            }]
                                         }
-                                    }]
-                                }
-                            }}
-                        />
+                                    }}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="row" style={{ marginTop: 15 }}>
+                                <MyMap />
+                        </div>
+
                     </div>
-                </div>
-    <div style={{ marginTop: 20 }}>
-    <MyMap />
-</div>
-                </div>
             )
         } else {
             return <div><MyMap /></div>

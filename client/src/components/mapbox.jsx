@@ -9,7 +9,7 @@ export default class MyMap extends React.Component{
   constructor(props: Props) {
     super(props);
     this.state = {
-   
+      
     };
   }
 
