@@ -15,6 +15,7 @@
     "express-status-monitor": "^1.2.10",
     "moment-timezone": "^0.5.28",
     "mongodb": "^2.2.33",
+    "neat-csv": "^5.2.0",
     "pg": "^8.0.0",
     "puppeteer": "^2.1.1"
   }
