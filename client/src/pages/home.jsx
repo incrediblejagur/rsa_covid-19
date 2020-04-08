@@ -67,8 +67,9 @@ export default class Home extends React.Component {
         let { latest, curveData } = this.state;
         if (latest.length > 0) {
             return (
+                <div>
+                    
                     <div className="container">
-
                         <div className="row centered">
                             <div className="col">
                                 <div className="card-group" style={{ marginTop: 50 }}>
@@ -78,7 +79,6 @@ export default class Home extends React.Component {
                         </div>
 
                         <div className="row" style={{ marginTop: 15 }}>
-                            <div className="col">
                                 <Line data={curveData}
                                     options={{
                                         scales: {
@@ -91,10 +91,10 @@ export default class Home extends React.Component {
                                         }
                                     }}
                                 />
-                            </div>
                         </div>
-
-                        <div className="row" style={{ marginTop: 15 }}>
+                        </div>
+                        
+                        <div className="" style={{ marginTop: 15 }}>
                                 <MyMap />
                         </div>
 
