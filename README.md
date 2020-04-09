@@ -14,7 +14,7 @@ Please note all data comes from the official South African Coronavirus website w
 
 ## About WebScraper
  ```
-The scraper script is run once a day at 11:00PM, once run it updates the data in our database. 
+This is run every 10min and if changes are found it updates the data in our database. 
 The script uses puppeteer and cheerio to scrape the latest data from https://sacoronavirus.co.za/.
 ```
  
