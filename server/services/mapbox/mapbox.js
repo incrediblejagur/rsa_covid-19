@@ -1,7 +1,7 @@
 const axios = require('axios');
 const CovidData = require('../getLatestData');
 const covidData = CovidData();
-// module.exports = () => {
+module.exports = () => {
 
     const update = async () => {
         let dataset_id = 'ck8mwy4c30im22tnofotat8sz'
@@ -9,10 +9,7 @@ const covidData = CovidData();
         let url = `https://api.mapbox.com/datasets/v1/incrediblejagur/${dataset_id}/features?access_token=${token}`
         let provinceData = await covidData.getCovidProvincialData()
         let province_data = provinceData[provinceData.length - 1]
-        axios
-            .get(url)
-            .then(response => {
-                let result = response
+        let result = await axios.get(url)
                 let data = result.data.features
                 for(let z = 0;z < data.length; z++){
                     for(short_code in province_data){
@@ -22,14 +19,12 @@ const covidData = CovidData();
                     }
                     }
                 }
+                // console.log(result.data)
+                return result.data
                 //result  contains the updated data in a geoJson
-            })
-
-
     }
-update()
 
-    // return {
-    //     update
-    // }
-// }
+    return {
+        update
+    }
+}

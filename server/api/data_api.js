@@ -1,4 +1,4 @@
-const curveData = require('../services/data/allPastData');
+const MapBoxService = require('../services/mapbox/mapbox');
 module.exports = (covidData) => {
 
 
@@ -37,6 +37,11 @@ module.exports = (covidData) => {
             console.log(err.stack)
         }
     }
+
+    const geoJSONdata = async (req,res) => {
+        const mapbox = MapBoxService();
+        res.json(await mapbox.update())
+    }
     
 
 
@@ -45,6 +50,7 @@ module.exports = (covidData) => {
     return{
         latestStatistics,
         collectedCovidState,
-        statsByProvince
+        statsByProvince,
+        geoJSONdata
     }
 }
