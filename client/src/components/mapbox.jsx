@@ -6,7 +6,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaW5jcmVkaWJsZWphZ3VyIiwiYSI6ImNrN3VyeXVybzE1O
 
 export default class MyMap extends React.Component{
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.state = {
       
