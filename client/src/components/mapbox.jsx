@@ -15,6 +15,8 @@ export default class MyMap extends React.Component{
 
   componentDidMount() {
 
+
+
     const map = new mapboxgl.Map({
       container: 'mymap',
       style: 'mapbox://styles/incrediblejagur/ck7xs2kdu00ot1ilpid6krvs7',
@@ -23,6 +25,30 @@ export default class MyMap extends React.Component{
     });
     map.scrollZoom.disable();
     map.dragPan.disable()
+
+    var url = '/api/covid/geojson';
+    map.on('load', function() {
+        window.setInterval(function() {
+            map.getSource('points').setData(url);
+        }, 2000);
+
+        map.addSource('points', { type: 'geojson', data: url });
+        map.addLayer({
+          'id': 'points',
+          'type': 'symbol',
+          'source': 'points',
+          'layout': {
+              // get the icon name from the source's "icon" property
+              // concatenate the name to get an icon from the style's sprite sheet
+              'icon-image': ['concat', ['get', 'icon'], '-15'],
+              // get the title name from the source's "title" property
+              'text-field': ['get', 'cases'],
+              'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+              'text-offset': [0, 0.6],
+              'text-anchor': 'top'
+          }
+                  });
+    });
   }
 
   render() {
