@@ -40,12 +40,15 @@ export default class MyMap extends React.Component{
           'layout': {
               // get the icon name from the source's "icon" property
               // concatenate the name to get an icon from the style's sprite sheet
-              'icon-image': ['concat', ['get', 'icon'], '-15'],
+              // 'icon-image': ['concat', ['get', 'icon'], '-15'],
               // get the title name from the source's "title" property
               'text-field': ['get', 'cases'],
               'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-              'text-offset': [0, 0.6],
+              'text-offset': [0, 0.0],
               'text-anchor': 'top'
+          },
+          paint: {
+            "text-color": "#ffffff"
           }
                   });
     });
