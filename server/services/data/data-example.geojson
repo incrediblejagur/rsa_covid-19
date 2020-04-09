@@ -1,0 +1,158 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "GP",
+        "wikidata": "Q133083",
+        "place_name": "Gauteng, South Africa",
+        "cases": 693
+      },
+      "geometry": {
+        "coordinates": [
+          28,
+          -26
+        ],
+        "type": "Point"
+      },
+      "id": "region.10011771476329030"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "NL",
+        "wikidata": "Q81725",
+        "place_name": "Kwazulu-Natal, South Africa",
+        "cases": 232
+      },
+      "geometry": {
+        "coordinates": [
+          31,
+          -29
+        ],
+        "type": "Point"
+      },
+      "id": "region.10208039415405560"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "MP",
+        "wikidata": "Q132410",
+        "place_name": "Mpumalanga, South Africa",
+        "cases": 18
+      },
+      "geometry": {
+        "coordinates": [
+          30,
+          -26
+        ],
+        "type": "Point"
+      },
+      "id": "region.10484601574652600"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "NW",
+        "wikidata": "Q165956",
+        "place_name": "North West, South Africa",
+        "cases": 11
+      },
+      "geometry": {
+        "coordinates": [
+          26,
+          -27
+        ],
+        "type": "Point"
+      },
+      "id": "region.11492184217166220"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "NC",
+        "wikidata": "Q132418",
+        "place_name": "Northern Cape, South Africa",
+        "cases": 7
+      },
+      "geometry": {
+        "coordinates": [
+          22,
+          -30
+        ],
+        "type": "Point"
+      },
+      "id": "region.12261298627540380"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "LP",
+        "wikidata": "Q134907",
+        "place_name": "Northern Province, South Africa",
+        "cases": 18
+      },
+      "geometry": {
+        "coordinates": [
+          29.5,
+          -24
+        ],
+        "type": "Point"
+      },
+      "id": "region.12689091531750480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "WC",
+        "wikidata": "Q127167",
+        "place_name": "Western Cape, South Africa",
+        "cases": 433
+      },
+      "geometry": {
+        "coordinates": [
+          20,
+          -34
+        ],
+        "type": "Point"
+      },
+      "id": "region.5793289691457140"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "EC",
+        "wikidata": "Q130840",
+        "place_name": "Eastern Cape, South Africa",
+        "cases": 25
+      },
+      "geometry": {
+        "coordinates": [
+          27,
+          -32
+        ],
+        "type": "Point"
+      },
+      "id": "region.9724042059023130"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_code": "FS",
+        "wikidata": "Q160284",
+        "place_name": "Free State, South Africa",
+        "cases": 85
+      },
+      "geometry": {
+        "coordinates": [
+          27,
+          -28
+        ],
+        "type": "Point"
+      },
+      "id": "region.9978708503715510"
+    }
+  ],
+  "type": "FeatureCollection"
+}
