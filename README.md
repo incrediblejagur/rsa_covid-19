@@ -27,7 +27,6 @@ The script uses puppeteer and cheerio to scrape the latest data from https://sac
 
 ## Data Sources:
 - [South African Coronavirus News and Information](https://sacoronavirus.co.za/)
-- [NICD(National Institure for Communicatable Diseases)](https://www.nicd.ac.za/media/alerts/)
 - [Data Science for Social Impact Research Group @ University of Pretoria
 ](https://dsfsi.github.io/)
 - [Covid-19 South Africa Wikipedia](https://en.wikipedia.org/wiki/Template:2019%E2%80%9320_coronavirus_pandemic_data/South_Africa_medical_cases_chart)
