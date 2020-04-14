@@ -8,7 +8,7 @@ module.exports = () => {
         let token = 'pk.eyJ1IjoiaW5jcmVkaWJsZWphZ3VyIiwiYSI6ImNrN3VyeXVybzE1OWEzbG1ybHFkNWcxNzMifQ.AybXTKikwd-8lr8TdbVyJQ'
         let url = `https://api.mapbox.com/datasets/v1/incrediblejagur/${dataset_id}/features?access_token=${token}`
         let provinceData = await covidData.getCovidProvincialData()
-        let province_data = provinceData[provinceData.length - 1]
+        let province_data = provinceData[provinceData.length - 2]
         let result = await axios.get(url)
                 let data = result.data.features
                 for(let z = 0;z < data.length; z++){
