@@ -5,7 +5,7 @@ module.exports = (db) => {
     const getLatestStats = async () => {
         let collection = db.collection('latestData');
         let data = await collection.find().toArray()
-        return data[data.length - 1].extractedData
+        return data[data.length - 1].data
     }
 
     const getAllCollectedData = async () => {
@@ -24,22 +24,24 @@ module.exports = (db) => {
     }
 
     const getLatestIncrease = async () => {
-        let collection = db.collection('latestData');
+        let collection = db.collection('allData');
         let data = await collection.find().toArray()
-        let latest = data[data.length - 1].extractedData
-        let beforeLatest = data[data.length - 2].extractedData
-        let latestIncrease = Number(Object.values(latest[1])) - Number(Object.values(beforeLatest[1]))
+        let latestDataset = data[data.length - 1]
+        let theData = latestDataset.data
+        let latestIncrease = theData[theData.length -1].cases - theData[theData.length -2].cases
         return latestIncrease
     }
 
     const getAverageIncrease = async () => {
-        let collection = db.collection('latestData');
+        let collection = db.collection('allData');
         let data = await collection.find().toArray()
+        let latestDataset = data[data.length - 1]
+        let theData = latestDataset.data
         let allDifferences = [];
-        for(let z = 0; z < data.length - 1; z++){
-            let t1 = data[z].extractedData
-            let t2 = data[z + 1].extractedData
-           let diff = Number(Object.values(t2[1])) - Number(Object.values(t1[1]))
+        for(let z = 0; z < theData.length - 1; z++){
+            let t1 = theData[z].cases
+            let t2 = theData[z + 1].cases
+           let diff = t2 - t1
            allDifferences.push((diff))
         }
         let average = allDifferences.reduce((a, b) => a + b, 0) / data.length
