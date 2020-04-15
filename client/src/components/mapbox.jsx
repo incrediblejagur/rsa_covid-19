@@ -26,7 +26,7 @@ export default class MyMap extends React.Component{
     map.scrollZoom.disable();
     map.dragPan.disable()
 
-    var url = '/api/covid/geojson';
+    var url = '/api/geojson';
     map.on('load', function() {
         window.setInterval(function() {
             map.getSource('points').setData(url);
