@@ -60,6 +60,7 @@ export default class MyMap extends React.Component{
       <div>
         <div id='mymap' 
              style={{
+               marginBottom:20,
               position: 'absolute',
               width: '100%',
               height: '100%',
