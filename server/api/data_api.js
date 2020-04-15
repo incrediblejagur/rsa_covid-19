@@ -43,7 +43,15 @@ module.exports = (covidData) => {
         res.json(await mapbox.update())
     }
     
-
+    const extraCovidInfo = async (req,res) => {
+        let extra_info = {
+            latest_increase: await covidData.getLatestIncrease(),
+            average_increase: await covidData.getAverageIncrease()
+        }
+        res.json({
+            data: extra_info
+        })
+    }
 
 
 
@@ -51,6 +59,7 @@ module.exports = (covidData) => {
         latestStatistics,
         collectedCovidState,
         statsByProvince,
-        geoJSONdata
+        geoJSONdata,
+        extraCovidInfo
     }
 }
