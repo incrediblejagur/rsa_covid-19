@@ -5,7 +5,7 @@ module.exports = (db) => {
     const getLatestStats = async () => {
         let collection = db.collection('latestData');
         let data = await collection.find().toArray()
-        return data[data.length - 1].data
+        return data[data.length - 1].extractedData
     }
 
     const getAllCollectedData = async () => {
