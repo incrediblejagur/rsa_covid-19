@@ -72,7 +72,7 @@ export class ProvinceGraph extends React.Component{
             let labels = [];
             let casesInProvince = [];
             for(let province in res){
-                if(province.length === 2){
+                if(province.length === 2 || province.length === 3 ){
                 labels.push(province)
                 casesInProvince.push(res[province])
                 }
