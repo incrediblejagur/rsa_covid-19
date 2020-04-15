@@ -23,10 +23,35 @@ module.exports = (db) => {
             })
     }
 
+    const getLatestIncrease = async () => {
+        let collection = db.collection('latestData');
+        let data = await collection.find().toArray()
+        let latest = data[data.length - 1].extractedData
+        let beforeLatest = data[data.length - 2].extractedData
+        let latestIncrease = Number(Object.values(latest[1])) - Number(Object.values(beforeLatest[1]))
+        return latestIncrease
+    }
+
+    const getAverageIncrease = async () => {
+        let collection = db.collection('latestData');
+        let data = await collection.find().toArray()
+        let allDifferences = [];
+        for(let z = 0; z < data.length - 1; z++){
+            let t1 = data[z].extractedData
+            let t2 = data[z + 1].extractedData
+           let diff = Number(Object.values(t2[1])) - Number(Object.values(t1[1]))
+           allDifferences.push((diff))
+        }
+        let average = allDifferences.reduce((a, b) => a + b, 0) / data.length
+        return average
+    }
+
 
     return {
         getLatestStats,
         getAllCollectedData,
-        getCovidProvincialData
+        getCovidProvincialData,
+        getLatestIncrease,
+        getAverageIncrease
     }
 }
