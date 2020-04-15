@@ -10,14 +10,13 @@ export class CovidTimelineGraph extends React.Component{
         latestData:false
     }
     componentDidMount = () => {
-        axios.get('/api/covid/latest')
+        axios.get('/api/latest-stats')
         .then((result) => {
             let data = result.data.data
             data.pop()
-            console.log(data[1])
             this.setState({ latestData: data })
         })
-        axios.get('/api/covid/all')
+        axios.get('/api/all-stats')
             .then((result) => {
                 let response = result.data.data
 
@@ -65,7 +64,7 @@ export class ProvinceGraph extends React.Component{
         data:''
     }
     componentDidMount = () =>{
-        axios.get('/api/covid/province')
+        axios.get('/api/province-stats')
         .then((result) => {
             let response = result.data.data
             let res = response[response.length -1]

@@ -7,7 +7,7 @@ export default class LatestStats extends React.Component{
         latest:''
     }
     componentDidMount = () => {
-        axios.get('/api/covid/latest')
+        axios.get('/api/latest-stats')
             .then((result) => {
                 let data = result.data.data
                 data.pop()
