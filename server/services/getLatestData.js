@@ -44,7 +44,7 @@ module.exports = (db) => {
            let diff = t2 - t1
            allDifferences.push((diff))
         }
-        let average = allDifferences.reduce((a, b) => a + b, 0) / data.length
+        let average = allDifferences.reduce((a, b) => a + b, 0) / allDifferences.length
         return average
     }
 
