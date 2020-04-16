@@ -1,4 +1,4 @@
-const MapBoxService = require('../services/mapbox/mapbox');
+const GeoJsonService = require('../services/geojson_service');
 module.exports = (covidData) => {
 
 
@@ -39,8 +39,8 @@ module.exports = (covidData) => {
     }
 
     const geoJSONdata = async (req,res) => {
-        const mapbox = MapBoxService();
-        res.json(await mapbox.update())
+        const geoJsonService = GeoJsonService();
+        res.json(await geoJsonService.getData())
     }
     
     const extraCovidInfo = async (req,res) => {

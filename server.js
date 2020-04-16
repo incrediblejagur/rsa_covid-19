@@ -1,7 +1,7 @@
 const express = require('express');
 const Routes = require('./server/routes/index')
 const Data_Api = require('./server/api/data_api')
-const CovidData = require('./server/services/getLatestData');
+const CovidDataService = require('./server/services/data_service');
 const mongo = require('mongodb').MongoClient
 
 
@@ -15,8 +15,8 @@ if (err) {
   console.error(err)
   return
 }
-let covidData = CovidData(db)
-const data_api = Data_Api(covidData)
+let covidDataService = CovidDataService(db)
+const data_api = Data_Api(covidDataService)
 Routes(app,data_api)
 })
 
