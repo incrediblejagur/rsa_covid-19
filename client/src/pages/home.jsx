@@ -3,6 +3,7 @@ import MyMap from '../components/mapbox';
 import LatestStats from '../components/latest_stats';
 import ExtraStats from '../components/extra_stats';
 import { CovidTimelineGraph, ProvinceGraph } from '../components/graphs';
+import Footer from '../components/footer';
 
 export default class Home extends React.Component {
 
@@ -36,7 +37,7 @@ export default class Home extends React.Component {
                     <MyMap />
                 </div>
 
-
+            <Footer />
             </div>
         )
     }
