@@ -21,7 +21,7 @@ export default class MyMap extends React.Component{
       container: 'mymap',
       style: 'mapbox://styles/incrediblejagur/ck7xs2kdu00ot1ilpid6krvs7',
       center: [24.991639, -28.8166236],
-      zoom: 4.9
+      zoom: 4.0
     });
     map.scrollZoom.disable();
     map.dragPan.disable()
@@ -61,9 +61,10 @@ export default class MyMap extends React.Component{
         <div id='mymap' 
              style={{
                marginBottom:20,
-              position: 'absolute',
+              position: 'relative',
               width: '100%',
-              height: '100%',
+              height: '350px',
+              borderRadius:5
               }}
         />
       </div>
