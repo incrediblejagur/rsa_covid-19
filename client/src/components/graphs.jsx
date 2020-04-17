@@ -6,16 +6,10 @@ import { Line, Bar } from 'react-chartjs-2';
 
 export class CovidTimelineGraph extends React.Component{
     state = {
-        data:false,
-        latestData:false
+        data: '',
+        cases:[]
     }
     componentDidMount = () => {
-        axios.get('/api/latest-stats')
-        .then((result) => {
-            let data = result.data.data
-            data.pop()
-            this.setState({ latestData: data })
-        })
         axios.get('/api/all-stats')
             .then((result) => {
                 let response = result.data.data
@@ -35,12 +29,11 @@ export class CovidTimelineGraph extends React.Component{
                     datasets: dataset.covidLineGraph(cases, recoveries, deaths)
                 };
 
-                this.setState({ data })
+                this.setState({ data, cases })
             })
     }
 render(){
-    let { data,latestData } = this.state
-    if(data && latestData){
+    let { data,cases } = this.state
     return(
         <article className="canvas-container">
         <Line data={data}
@@ -50,7 +43,7 @@ render(){
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            max: Math.ceil((Number(Object.values(latestData[1])) * 2.5) / 100) * 100
+                            max: Math.ceil((cases[cases.length - 1] * 2.5) / 100) * 100
                         }
                     }]
                 }
@@ -58,7 +51,6 @@ render(){
         />
         </article>
     )
-        }else{ return <div></div>}
 }
 }
 
