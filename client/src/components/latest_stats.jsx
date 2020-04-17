@@ -4,37 +4,57 @@ import axios from 'axios';
 
 export default class LatestStats extends React.Component{
     state = {
-        latest:''
+        data:[]
     }
     componentDidMount = () => {
         axios.get('/api/latest-stats')
             .then((result) => {
                 let data = result.data.data
-                data.pop()
-                this.setState({ latest: data })
+                let values = [];
+                for(let stats in data){
+                    values.push(Object.values(data[stats])[0])
+                }
+               this.setState({data:values})
             })
         }
 
-        displayData = () => {
-            let { latest } = this.state
-            let div = [];
-            for (let z = 0; z < latest.length; z++) {
-                div.push(
-                    <div className="card" style={{ width: '18rem' }}>
-                        <div className="card-body">
-                            <h5 className="card-title">{Object.keys(latest[z])}</h5>
-                            <p className="card-text">{Object.values(latest[z])}</p>
-                        </div>
-                    </div>
-                )
-            }
-            return div
-        }
 
         render(){
+            let { data } = this.state;
             return(
                 <div className="card-group" style={{ marginTop: 50 }}>
-                {this.displayData()}</div>
+                
+
+                <div className="card" style={{ width: '18rem' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Tests Conducted</h5>
+                            <p className="card-text">{data[0]}&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div className="card" style={{ width: '18rem' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Positive Cases Identified</h5>
+                            <p className="card-text">{data[1]}&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div className="card" style={{ width: '18rem' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Recoveries</h5>
+                            <p className="card-text">{data[2]}&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div className="card" style={{ width: '18rem' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Deaths</h5>
+                            <p className="card-text">{data[3]}&nbsp;</p>
+                        </div>
+                    </div>
+
+
+                </div>
             )
         }
 
