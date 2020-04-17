@@ -28,7 +28,7 @@ export default class Home extends React.Component {
                         <div className='col-sm'>
                             <ProvinceGraph />
                         </div>
-                        <div className='mycards col-sm centered' style={{marginTop:30}}>
+                        <div className='mycards extrainfo col-sm centered' style={{marginTop:30}}>
                         <ExtraStats />
                     </div>
                     </div>
