@@ -15,18 +15,22 @@ export default class Home extends React.Component {
                 <div className="container">
 
                     <div className="row centered">
-                        <div className="col">
+                        <div className="mycards col-sm">
                             <LatestStats />
                         </div>
                     </div>
-                    <div className="row" style={{ marginTop: 15 }}>
+                    <div className="row centered" style={{ marginTop: 15 }}>
+                        <div className="col-sm">
                         <CovidTimelineGraph />
+                        </div>
                     </div>
-                    <div className="row" style={{ marginTop: 15 }}>
-                        <div className='col-6'>
+                    <div className="row centered" style={{ marginTop: 15 }}>
+                        <div className='col-sm'>
                             <ProvinceGraph />
                         </div>
+                        <div className='mycards col-sm centered' style={{marginTop:30}}>
                         <ExtraStats />
+                    </div>
                     </div>
 
                 </div>

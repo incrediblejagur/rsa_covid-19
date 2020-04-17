@@ -42,8 +42,10 @@ render(){
     let { data,latestData } = this.state
     if(data && latestData){
     return(
+        <article className="canvas-container">
         <Line data={data}
             options={{
+                maintainAspectRatio:false,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -54,6 +56,7 @@ render(){
                 }
             }}
         />
+        </article>
     )
         }else{ return <div></div>}
 }

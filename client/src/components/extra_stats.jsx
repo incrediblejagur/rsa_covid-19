@@ -28,8 +28,8 @@ export default class ExtraStats extends React.Component{
     render(){
         let {latestIncrease, averageIncrease, lastUpdated} = this.state;
         return(
-              <div className='col-6' style={{marginTop:30}}>
-                            <div className='row'>
+              <div>
+                            <div className=''>
                         <div className="card-group" style={{ marginTop: 0 }}>
                         <div className="card" style={{ width: '18rem' }}>
                     <div className="card-body">
@@ -45,7 +45,8 @@ export default class ExtraStats extends React.Component{
                 </div>
                 </div>
                 </div>
-                <div className='row'>
+
+                <div className=''>
                         <div className="card-group" style={{ marginTop: 0 }}>
                         <div className="card" style={{ width: '18rem' }}>
                     <div className="card-body">
