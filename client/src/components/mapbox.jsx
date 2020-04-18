@@ -28,9 +28,9 @@ export default class MyMap extends React.Component{
 
     var url = '/api/geojson';
     map.on('load', function() {
-        window.setInterval(function() {
-            map.getSource('points').setData(url);
-        }, 2000);
+        // window.setInterval(function() {
+            // map.getSource('points').setData(url);
+        // }, 2000);
 
         map.addSource('points', { type: 'geojson', data: url });
         map.addLayer({
