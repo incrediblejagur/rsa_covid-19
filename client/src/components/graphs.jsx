@@ -43,7 +43,8 @@ render(){
                     yAxes: [{
                         ticks: {
                             beginAtZero: true,
-                            max: Math.ceil((cases[cases.length - 1] * 2.5) / 100) * 100
+                            max: Math.round(( (cases[cases.length - 1] *2.5) / 1000 )) * 1000 
+
                         }
                     }]
                 }
