@@ -5,14 +5,14 @@ const moment = require('moment-timezone');
 module.exports = (db) => {
 
   const scrape = async () => {
-  const collectionA = db.collection('latestData');
-  const collectionB = db.collection('allData');
-  //Data extracted from South African Resource Portal for COVID-19
+    const collectionA = db.collection('latestData');
+    const collectionB = db.collection('allData');
+    //Data extracted from South African Resource Portal for COVID-19
     let extractedData = [];
     const url = "https://sacoronavirus.co.za/"
 
     puppeteer
-      .launch({args: ['--no-sandbox']})
+      .launch({ args: ['--no-sandbox'] })
       .then(browser => browser.newPage())
       .then(page => {
         return page.goto(url, { waitUntil: 'networkidle2' }).then(async function () {
@@ -30,31 +30,42 @@ module.exports = (db) => {
           });
         });
         let dateByZone = moment().tz("Africa/Maseru").format()
-        let dateOnly = dateByZone.split('T')[0]
-        let formatedDate = dateOnly.replace('-','/').replace('-','/')
-        extractedData.push({time:formatedDate})
-        await collectionA.insertOne({extractedData})
-        let getAllDbData = await collectionB.find().toArray()
-        let lastDatasetinDb = getAllDbData[getAllDbData.length - 1].data
-        let lastItemInDataset = lastDatasetinDb[lastDatasetinDb.length - 1]
-        if(lastItemInDataset.cases !== Number(Object.values(extractedData[1]))){
-          let newDataToAdd ={
-            date:extractedData[4].time,
-            cases:Number(Object.values(extractedData[1])),
-            recoveries:Number(Object.values(extractedData[2])),
-            deaths:Number(Object.values(extractedData[3]))
-          }
-          lastDatasetinDb.push(newDataToAdd)
-          await collectionB.insertOne({data:lastDatasetinDb})
-          // console.log('data is different')
-        }else{
-          // console.log('data is the same')
+        let splitDateTime = dateByZone.split('T')
+        let formatedDate = splitDateTime[0].replace('-', '/').replace('-', '/')
+        let formatedTime = splitDateTime[1].split('+')[0]
+        extractedData.push({ time: formatedTime, date: formatedDate })
+        if (await collectionA.count() === 1) {
+          await collectionA.updateOne({}, { extractedData })
+        } else {
+          await collectionA.deleteMany({})
+          await collectionA.insertOne({ extractedData })
         }
-        
+
+        const getCollectedData = await collectionB.findOne()
+        const collected_data = getCollectedData.data
+        const newDataToAdd = {
+            date: extractedData[4].date,
+            cases: Number(Object.values(extractedData[1])),
+            recoveries: Number(Object.values(extractedData[2])),
+            deaths: Number(Object.values(extractedData[3])),
+          }
+          let lastDataAdded = collected_data[collected_data.length - 1]
+          if(newDataToAdd.cases !== lastDataAdded.cases){
+          collected_data.push(newDataToAdd)
+          if (await collectionB.count() === 1) {
+            await collectionB.updateOne({}, { data: collected_data })
+          } else {
+            await collectionB.deleteMany({})
+            await collectionB.insertOne({ data: collected_data })
+          }
+        }else{
+          console.log('data is the same')
+        }
+
       })
-    }
-    return{
-      scrape
-    }
-    // return extractedData;
+  }
+  return {
+    scrape
+  }
+  // return extractedData;
 }
