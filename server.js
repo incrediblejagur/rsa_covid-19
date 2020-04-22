@@ -6,7 +6,6 @@ const mongo = require('mongodb').MongoClient
 
 
 const app = express();
-app.use(require('express-status-monitor')())
 app.use(express.static('./client/build'));
 
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/covid19'
