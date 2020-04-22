@@ -6,7 +6,7 @@ export default class ExtraStats extends React.Component{
     state = {
         latestIncrease:'',
         latestAverage:'',
-        lastUpdated:''
+        lastChecked:''
     }
     componentDidMount = () => {
         axios.get('/api/extra-stats')
@@ -21,12 +21,12 @@ export default class ExtraStats extends React.Component{
             axios.get('/api/latest-stats')
             .then((result) => {
                 let data = result.data.data
-                this.setState({lastUpdated:`${data[4].date} ${data[4].time}`})           
+                this.setState({lastChecked:`${data[4].date} ${data[4].time}`})           
             })
         }
 
     render(){
-        let {latestIncrease, latestAverage, lastUpdated} = this.state;
+        let {latestIncrease, latestAverage, lastChecked} = this.state;
         return(
               <div>
                             <div className=''>
@@ -56,8 +56,8 @@ export default class ExtraStats extends React.Component{
                 </div>
                 <div className="card" style={{ width: '18rem' }}>
                     <div className="card-body">
-                        <h5 className="card-title">Last Updated</h5>
-        <p className="card-text">{lastUpdated}&nbsp;</p>
+                        <h5 className="card-title">Last Checked</h5>
+        <p className="card-text">{lastChecked}&nbsp;</p>
                     </div>
                 </div>
                 </div>
