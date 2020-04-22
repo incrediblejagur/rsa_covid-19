@@ -1,9 +1,6 @@
 # South Africa COVID-19 outbreak tracker/visualisation
 Please note all the latest data comes from the official South African Coronavirus website which get their data from the NICD(National Institute for Communicatable Diseases), They are responsible for monitoring and tracking of all covid-19 cases in South Africa. Past data was taken from wikipedia and checked thoroughly with diffrent sources to see if it was correct(before i started capturing it on a daily basis). 
 
-![rsa Covid-19 Dashboard](https://github.com/incrediblejagur/rsa_covid-19/blob/master/client/public/images/screencapture-rsa-covid19-herokuapp-com-1586197169754.png)
-
-
 
 ## Libraries Used:
  - Chart.js
