@@ -43,10 +43,10 @@ module.exports = (covidData) => {
         res.json(await geoJsonService.getData())
     }
     
-    const extraCovidInfo = async (req,res) => {
+    const extraCovidStats = async (req,res) => {
         let extra_info = {
             latest_increase: await covidData.getLatestIncrease(),
-            average_increase: await covidData.getAverageIncrease()
+            average_cases: await covidData.getAverageCases()
         }
         res.json({
             data: extra_info
@@ -60,6 +60,6 @@ module.exports = (covidData) => {
         collectedCovidState,
         statsByProvince,
         geoJSONdata,
-        extraCovidInfo
+        extraCovidStats
     }
 }

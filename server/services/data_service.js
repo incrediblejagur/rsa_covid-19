@@ -32,20 +32,25 @@ module.exports = (db) => {
         return latestIncrease
     }
 
-    const getAverageIncrease = async () => {
+    const getAverageCases = async () => {
         let collection = db.collection('allData');
         let data = await collection.find().toArray()
         let latestDataset = data[data.length - 1]
         let theData = latestDataset.data
+      const findAverage = (dayAgo) =>  {  //dayAgo - 1 being latest
         let allDifferences = [];
-        for(let z = 0; z < theData.length - 1; z++){
+        for(let z = 0; z < theData.length - dayAgo; z++){
             let t1 = theData[z].cases
             let t2 = theData[z + 1].cases
            let diff = t2 - t1
            allDifferences.push((diff))
         }
-        let average = allDifferences.reduce((a, b) => a + b, 0) / allDifferences.length
-        return average.toFixed(2)
+        let average = Number(allDifferences.reduce((a, b) => a + b, 0) / allDifferences.length).toFixed(2)
+        return average
+    }
+        let yesterday_average = findAverage(2)
+        let latest_average = findAverage(1)
+        return {latest_average, yesterday_average}
     }
 
 
@@ -54,6 +59,6 @@ module.exports = (db) => {
         getAllCollectedData,
         getCovidProvincialData,
         getLatestIncrease,
-        getAverageIncrease
+        getAverageCases
     }
 }

@@ -5,28 +5,28 @@ import axios from 'axios';
 export default class ExtraStats extends React.Component{
     state = {
         latestIncrease:'',
-        averageIncrease:'',
+        latestAverage:'',
         lastUpdated:''
     }
     componentDidMount = () => {
-        axios.get('/api/extra-info')
+        axios.get('/api/extra-stats')
             .then((result) => {
                 let data = result.data.data
                 this.setState({
                     latestIncrease:data.latest_increase,
-                    averageIncrease: data.average_increase
+                    latestAverage:data.average_cases.latest_average,
                 })
                 
             })
             axios.get('/api/latest-stats')
             .then((result) => {
                 let data = result.data.data
-                this.setState({lastUpdated:data[4].time})           
+                this.setState({lastUpdated:`${data[4].date} ${data[4].time}`})           
             })
         }
 
     render(){
-        let {latestIncrease, averageIncrease, lastUpdated} = this.state;
+        let {latestIncrease, latestAverage, lastUpdated} = this.state;
         return(
               <div>
                             <div className=''>
@@ -39,8 +39,8 @@ export default class ExtraStats extends React.Component{
                 </div>
                 <div className="card" style={{ width: '18rem' }}>
                     <div className="card-body">
-                        <h5 className="card-title">Average Increase</h5>
-        <p className="card-text">{averageIncrease}&nbsp;</p>
+                        <h5 className="card-title">Average Cases</h5>
+        <p className="card-text">{latestAverage}&nbsp;</p>
                     </div>
                 </div>
                 </div>
