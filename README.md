@@ -29,7 +29,7 @@ The script uses puppeteer and cheerio to scrape the latest data from https://sac
 | Total Tests Conducted, Cases, Recoveries and Deaths   | http://rsa-covid19.herokuapp.com/api/all-stats        |
 | Cases by province                                     | http://rsa-covid19.herokuapp.com/api/province-stats   |
 | Cases by province(GeoJSON Data)                       | http://rsa-covid19.herokuapp.com/api/geojson          |
-| Latest/Average increase in cases                      | http://rsa-covid19.herokuapp.com/api/extra-info       |
+| Latest/Average increase in cases                      | http://rsa-covid19.herokuapp.com/api/extra-stats       |
 
 
 ## Data Sources:
