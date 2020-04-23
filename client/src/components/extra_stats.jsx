@@ -40,7 +40,7 @@ export default class ExtraStats extends React.Component{
                 <div className="card" style={{ width: '18rem' }}>
                     <div className="card-body">
                         <h5 className="card-title">Average Cases</h5>
-        <p className="card-text">{latestAverage}&nbsp;</p>
+        <p className="card-text">{latestAverage} per day&nbsp;</p>
                     </div>
                 </div>
                 </div>
