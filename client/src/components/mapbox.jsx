@@ -15,8 +15,6 @@ export default class MyMap extends React.Component{
 
   componentDidMount() {
 
-
-
     const map = new mapboxgl.Map({
       container: 'mymap',
       style: 'mapbox://styles/incrediblejagur/ck7xs2kdu00ot1ilpid6krvs7',

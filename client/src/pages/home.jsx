@@ -16,20 +16,20 @@ export default class Home extends React.Component {
 
                     <div className="row centered">
                         <div className="mycards col-sm">
-                            <LatestStats />
+                            <LatestStats data={this.props.latest}/>
                         </div>
                     </div>
                     <div className="row centered" style={{ marginTop: 15 }}>
                         <div className="col-sm">
-                        <CovidTimelineGraph />
+                        <CovidTimelineGraph data={this.props.allStats}/>
                         </div>
                     </div>
                     <div className="row centered" style={{ marginTop: 15 }}>
                         <div className='col-sm'>
-                            <ProvinceGraph />
+                            <ProvinceGraph data={this.props.provinceStats}/>
                         </div>
                         <div className='mycards extrainfo col-sm centered' style={{marginTop:30}}>
-                        <ExtraStats />
+                        <ExtraStats data={this.props.extraStats} />
                     </div>
                     </div>
 
