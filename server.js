@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const Routes = require('./server/routes/index')
 const Data_Api = require('./server/api/data_api')
 const CovidDataService = require('./server/services/data_service');
@@ -6,6 +7,7 @@ const mongo = require('mongodb').MongoClient
 
 
 const app = express();
+app.use(cors());
 app.use(express.static('./client/build'));
 
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/covid19'
