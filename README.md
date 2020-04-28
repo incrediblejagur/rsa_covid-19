@@ -11,7 +11,7 @@ Please note all the latest data comes from the official South African Coronaviru
 
 ## About WebScraper
  ```
-This is run every 10min and if changes are found it updates the data in our database.(heroku scheduler)
+This is run twice a day at 19:00 and 21:30 UTC and if changes are found it updates the data in our database.(heroku scheduler)
 The script uses puppeteer and cheerio to scrape the latest data from https://sacoronavirus.co.za/.
 To make it update in intervals locallay you can use the 'setInterval method' and run the automate.js script.
 ```
