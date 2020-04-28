@@ -23,7 +23,7 @@ To make it update in intervals locallay you can use the 'setInterval method' and
  - React
  - Bootstrap
  
- ## API
+ ## API Usage
 
 | Data                                                  | URL                                                   |
 | ----------------------------------------------------- | ----------------------------------------------------- |
