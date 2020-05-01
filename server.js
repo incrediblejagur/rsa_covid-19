@@ -9,7 +9,7 @@ const mongo = require('mongodb').MongoClient
 require('dotenv').config();
 const app = express();
 app.use(cors());
-app.use(middleware.useSecureProtocol);
+// app.use(middleware.useSecureProtocol);
 app.use(express.static('./client/build'));
 
 const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/covid19'
