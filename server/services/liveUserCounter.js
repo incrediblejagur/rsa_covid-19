@@ -1,13 +1,13 @@
 module.exports = (io) => {
-var count = 0;
-var $ipsConnected = [];
+let count = 0;
+let $ipsConnected = [];
 
 io.on('connection', function (socket) {
-    var $ipAddress = socket.handshake.address;
+    let $ipAddress = socket.handshake.address;
     if (!$ipsConnected.hasOwnProperty($ipAddress)) {
         $ipsConnected[$ipAddress] = 1;
         count++;
-        socket.emit('counter', { count: count });
+        io.emit('counter', { count: count });
     }
     // console.log("client is connected");
 
@@ -17,7 +17,7 @@ io.on('connection', function (socket) {
         if ($ipsConnected.hasOwnProperty($ipAddress)) {
             delete $ipsConnected[$ipAddress];
             count--;
-            socket.emit('counter', { count: count });
+            io.emit('counter', { count: count });
         }
 
     });
