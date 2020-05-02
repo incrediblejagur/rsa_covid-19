@@ -1,8 +1,5 @@
 
-module.exports = (app) => {
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-server.listen(80);
+module.exports = (io) => {
 var count = 0;
 var $ipsConnected = [];
 
