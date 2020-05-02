@@ -75,7 +75,7 @@
     -->
 </body>
 <script type="text/javascript">
-  var socket = io.connect('http://rsa_covid19.herokuapp.com:8001');
+  var socket = io.connect('http://rsa-covid19.herokuapp.com:8001');
   socket.on('counter', function (data) {
 
     $("#counter").text(data.count);
