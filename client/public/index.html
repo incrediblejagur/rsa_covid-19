@@ -58,10 +58,15 @@
         <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
       </div>
     </div>
-    <div class="user-counter">online users:&nbsp;<span id="counter">&nbsp;</span></div>
+
+    <div>
+    <button class="user-counter" data-toggle="popover"  data-trigger="focus"
+      data-content="This is displaying how many users are currently viewing this tracker in realtime."><span
+        class="text-before-counter">online users:&nbsp;</span><span id="counter">&nbsp;</span></button>
     <a class="github" href="https://github.com/incrediblejagur/rsa_covid-19"><img src="/images/GitHub.png"
         style="width:32px; height:32px; margin-right:5px"></a>
-  </nav>
+      </div>
+      </nav>
   <div id="root"></div>
   <!--
       This HTML file is a template.
@@ -75,11 +80,17 @@
     -->
 </body>
 <script type="text/javascript">
-      let socket = io();
+  let socket = io();
   socket.on('counter', function (data) {
 
     $("#counter").text(data.count);
 
   });
 </script>
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+
 </html>
