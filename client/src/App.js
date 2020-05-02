@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styling/App.css';
 import Home from './pages/home';
 import apiRequests from './api/requests';
 
