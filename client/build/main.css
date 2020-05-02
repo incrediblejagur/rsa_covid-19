@@ -1,4 +1,22 @@
 .github:hover{
     opacity: 0.8;
   }
-  
+
+.user-counter{
+  color:white;
+  border:1px solid white;
+  border-radius: 3px;
+  padding:5px;
+  margin-left:10px;
+  margin-right: 10px;
+}
+
+.user-counter:hover{
+  color:black;
+  background-color: white;
+  border:1px solid white;
+  border-radius: 3px;
+  padding:5px;
+  margin-left:10px;
+  margin-right: 10px;
+}
