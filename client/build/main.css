@@ -2,8 +2,22 @@
     opacity: 0.8;
   }
 
+button{
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+  
+@media screen and (max-width: 450px) {
+ .user-counter{
+   border-radius: 10px !important;
+   padding:5px 15px 5px !important;
+ }
+ .text-before-counter{
+   display: none;
+ }
+}
+
 .user-counter{
-  color:white;
+  color:white !important;
   border:1px solid white;
   border-radius: 3px;
   padding:5px;
@@ -12,8 +26,8 @@
 }
 
 .user-counter:hover{
-  color:black;
-  background-color: white;
+  color:black !important;
+  background-color: white !important;
   border:1px solid white;
   border-radius: 3px;
   padding:5px;
