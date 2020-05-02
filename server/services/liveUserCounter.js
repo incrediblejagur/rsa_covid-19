@@ -1,8 +1,6 @@
-
 module.exports = (io) => {
 var count = 0;
 var $ipsConnected = [];
-
 
 io.on('connection', function (socket) {
     var $ipAddress = socket.handshake.address;
@@ -11,7 +9,7 @@ io.on('connection', function (socket) {
         count++;
         socket.emit('counter', { count: count });
     }
-    console.log("client is connected");
+    // console.log("client is connected");
 
 
     /* Disconnect socket */
