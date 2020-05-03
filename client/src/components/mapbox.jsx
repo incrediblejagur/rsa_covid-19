@@ -1,5 +1,7 @@
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 import React from 'react';
+import mapLayers from './mapbox_layers/layers';
+import MapKey from './map_key';
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW5jcmVkaWJsZWphZ3VyIiwiYSI6ImNrOTJwM2FsNzAyM2szbW9hdWR2OXBqZjUifQ.6H9790vEmqomFGSu0Q8M0g';
@@ -29,6 +31,7 @@ export default class MyMap extends React.Component{
         // window.setInterval(function() {
             // map.getSource('points').setData(url);
         // }, 2000);
+        mapLayers(map);
 
         map.addSource('points', { type: 'geojson', data: url });
         map.addLayer({

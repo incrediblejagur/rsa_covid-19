@@ -4,6 +4,7 @@ import LatestStats from '../components/latest_stats';
 import ExtraStats from '../components/extra_stats';
 import { CovidTimelineGraph, ProvinceGraph } from '../components/graphs';
 import Footer from '../components/footer';
+import MapKey from '../components/map_key';
 
 export default class Home extends React.Component {
 
@@ -39,6 +40,7 @@ export default class Home extends React.Component {
 
                 <div className="" style={{ marginTop: 15 }}>
                     <MyMap />
+                    <MapKey />
                 </div>
 
             <Footer />

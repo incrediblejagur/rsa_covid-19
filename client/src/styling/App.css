@@ -62,3 +62,19 @@ to   { opacity: 1; }
     margin-top: 5px !important;
   }
 }
+
+.legend {
+  width:100%;
+  background-color: rgb(228, 228, 228);
+  padding: 3px 2px 3px;
+  text-align: center;
+}
+
+.mapkeys{
+  margin-right: 13px;
+  display:inline-block;
+}
+.key{
+  padding:0px 10px 0px;
+  border-radius: 100%;
+}
