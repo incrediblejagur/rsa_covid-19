@@ -1,19 +1,10 @@
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js';
 import React from 'react';
 import mapLayers from './mapbox_layers/layers';
-import MapKey from './map_key';
-
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaW5jcmVkaWJsZWphZ3VyIiwiYSI6ImNrOTJwM2FsNzAyM2szbW9hdWR2OXBqZjUifQ.6H9790vEmqomFGSu0Q8M0g';
 
 export default class MyMap extends React.Component{
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      
-    };
-  }
 
   componentDidMount() {
 
@@ -28,9 +19,6 @@ export default class MyMap extends React.Component{
 
     var url = '/api/geojson';
     map.on('load', function() {
-        // window.setInterval(function() {
-            // map.getSource('points').setData(url);
-        // }, 2000);
         mapLayers(map);
 
         map.addSource('points', { type: 'geojson', data: url });
@@ -39,10 +27,6 @@ export default class MyMap extends React.Component{
           'type': 'symbol',
           'source': 'points',
           'layout': {
-              // get the icon name from the source's "icon" property
-              // concatenate the name to get an icon from the style's sprite sheet
-              // 'icon-image': ['concat', ['get', 'icon'], '-15'],
-              // get the title name from the source's "title" property
               'text-field': ['get', 'cases'],
               'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
               'text-offset': [0, 0.0],
