@@ -10,7 +10,7 @@ module.exports = (app,data_api) => {
     app.get('/api/covid/all', data_api.collectedCovidState);
 
     app.get('/*', (req,res) => {
-        res.redirect('https://github.com/incrediblejagur/rsa_covid-19#api')
+        res.redirect('https://github.com/incrediblejagur/rsa_covid-19#api-usage')
     });
 
     
