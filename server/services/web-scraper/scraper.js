@@ -54,6 +54,7 @@ module.exports = (db) => {
       }
       let lastDataAdded = collected_data[collected_data.length - 1]
       if (newDataToAdd.cases !== lastDataAdded.cases) {
+        console.log('Later stats are found and is updating database')
         collected_data.push(newDataToAdd)
         if (await collectionB.count() === 1) {
           await collectionB.updateOne({}, { data: collected_data })
@@ -68,7 +69,7 @@ module.exports = (db) => {
           await collectionA.insertOne({ extractedData })
         }
       } else {
-        console.log('data is the same')
+        console.log('Stats are already up to date.')
       }
 
     }
