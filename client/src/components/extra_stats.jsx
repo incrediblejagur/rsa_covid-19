@@ -33,7 +33,7 @@ export default class ExtraStats extends React.Component {
                         </div>
                         <div className="card" style={{ width: '18rem' }}>
                             <div className="card-body">
-                                <h5 className="card-title">Last Checked</h5>
+                                <h5 className="card-title">Last Updated</h5>
                                 <p className="card-text">{data.lastChecked.date}&nbsp; {data.lastChecked.time}</p>
                             </div>
                         </div>
