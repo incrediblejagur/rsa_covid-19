@@ -42,12 +42,7 @@ module.exports = (db) => {
       let formatedDate = splitDateTime[0].replace('-', '/').replace('-', '/')
       let formatedTime = splitDateTime[1].split('+')[0]
       extractedData.push({ time: formatedTime, date: formatedDate })
-      if (await collectionA.count() === 1) {
-        await collectionA.updateOne({}, { extractedData })
-      } else {
-        await collectionA.deleteMany({})
-        await collectionA.insertOne({ extractedData })
-      }
+
 
       const getCollectedData = await collectionB.findOne()
       const collected_data = getCollectedData.data
@@ -65,6 +60,12 @@ module.exports = (db) => {
         } else {
           await collectionB.deleteMany({})
           await collectionB.insertOne({ data: collected_data })
+        }
+        if (await collectionA.count() === 1) {
+          await collectionA.updateOne({}, { extractedData })
+        } else {
+          await collectionA.deleteMany({})
+          await collectionA.insertOne({ extractedData })
         }
       } else {
         console.log('data is the same')
