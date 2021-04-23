@@ -18,7 +18,7 @@ export default class Home extends React.Component {
                     <div className="row centered">
                         <div className="mycards col-sm">
                             <LatestStats data={this.props.latest}/>
-                            <code style={{fontSize:"10px"}}>Data scraped from sacoronavirus.co.za (Scraper is automated and run's once a day)</code>
+                            <code style={{fontSize:"10px"}}>Data scraped from sacoronavirus.co.za (Scraper is automated and run's 3 times a day)</code>
                         </div>
                     </div>
                     {/* Graph disabled because past data is not reliable */}
