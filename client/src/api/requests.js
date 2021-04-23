@@ -11,7 +11,7 @@ let lastChecked = {};
             for (let stats in data) {
                 values.push(Object.values(data[stats])[0])
             }
-            lastChecked = data[4]
+            lastChecked = `${data[5].time} ${data[5].date}`
             return values;
         })
     },

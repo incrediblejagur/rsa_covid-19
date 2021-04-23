@@ -16,12 +16,12 @@ export default class ExtraStats extends React.Component {
                         </div>
                         <div className="card" style={{ width: '18rem' }}>
                             <div className="card-body">
-                                <h5 className="card-title">Average Cases</h5>
-                                <p className="card-text">{data.latestAverage} per day&nbsp;</p>
+                                <h5 className="card-title">Alert:</h5>
+                                <p className="card-text">Stay Safe &#128591;</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
 
                 <div className=''>
                     <div className="card-group" style={{ marginTop: 0 }}>
@@ -34,7 +34,7 @@ export default class ExtraStats extends React.Component {
                         <div className="card" style={{ width: '18rem' }}>
                             <div className="card-body">
                                 <h5 className="card-title">Last Updated</h5>
-                                <p className="card-text">{data.lastChecked.date}&nbsp; {data.lastChecked.time}</p>
+                                <p className="card-text">{data.lastChecked}</p>
                             </div>
                         </div>
                     </div>

@@ -44,8 +44,17 @@ module.exports = (db) => {
       extractedData.push({ time: formatedTime, date: formatedDate })
 
 
-      const getCollectedData = await collectionB.findOne()
+      let getCollectedData = await collectionB.findOne()
+      if(getCollectedData === null) {
+        getCollectedData = {};
+        getCollectedData.data = [];
+        let sample_data = {cases:0};
+        getCollectedData.data.push(sample_data);
+      }
+            console.log(getCollectedData)
+// [{cases:0, date: yyyy/mm/dd},{cases:2, date: yyyy/mm/dd},{},{}]
       const collected_data = getCollectedData.data
+      console.log(collected_data)
       const newDataToAdd = {
         date: extractedData[4].date,
         cases: Number(Object.values(extractedData[1])),

@@ -7,7 +7,7 @@ if (err) {
   console.error(err)
   return
 }
-let webScraper = WebScraper(db)
-await webScraper.scrape()
+let webScraper = WebScraper(db);
+await webScraper.scrape();
 setTimeout(() => { process.exit() }, 20000);
 })
